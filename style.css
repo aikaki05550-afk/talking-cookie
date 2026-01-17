@@ -1,0 +1,48 @@
+body {
+  background-image: url("https://image.slidesdocs.com/responsive-images/background/kitchen-pink-cute-cartoon-powerpoint-background_1d413e41db__960_540.jpg");
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+
+  font-family: Arial, sans-serif;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+}
+
+
+.container {
+  text-align: center;
+  width: 300px;
+}
+
+.cookie img {
+  width: 150px;
+  cursor: pointer;
+}
+
+
+.speech {
+  background: white;
+  padding: 15px;
+  border-radius: 15px;
+  min-height: 60px;
+}
+
+.buttons button {
+  display: block;
+  width: 100%;
+  margin: 6px 0;
+  padding: 10px;
+  border: none;
+  border-radius: 12px;
+  background: #d49a5a;
+  color: white;
+  cursor: pointer;
+  font-size: 14px;
+}
+
+.buttons button:hover {
+  background: #b67c3f;
+}
