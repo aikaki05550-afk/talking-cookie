@@ -1,22 +1,41 @@
 const speech = document.getElementById("speech");
 const buttons = document.getElementById("buttons");
+const cookieImg = document.querySelector(".cookie img");
 
 let step = 0;
+let canClickCookie = false;
 
 function setDialogue(text, options) {
-  speech.textContent = text;
-  buttons.innerHTML = "";
+  speech.style.opacity = "0";
+  
+  setTimeout(() => {
+    speech.textContent = text;
+    buttons.innerHTML = "";
+    speech.style.opacity = "1";
 
-  options.forEach(option => {
-    const btn = document.createElement("button");
-    btn.textContent = option.text;
-    btn.onclick = option.action;
-    buttons.appendChild(btn);
+    options.forEach((option, index) => {
+      const btn = document.createElement("button");
+      btn.textContent = option.text;
+      btn.onclick = option.action;
+      btn.style.animationDelay = `${index * 0.1}s`;
+      btn.className = "btn-fade";
+      buttons.appendChild(btn);
+    });
+  }, 200);
+}
+
+// Cookie click interaction
+if (cookieImg) {
+  cookieImg.addEventListener("click", () => {
+    if (canClickCookie) {
+      cookieClicked();
+    }
   });
 }
 
 /* --- ШАГ 1 --- */
 function start() {
+  canClickCookie = false;
   setDialogue(
     "Hi! I'm a cookie 🍪",
     [
@@ -89,6 +108,13 @@ function veryBad() {
   setDialogue(
     "I'm sorry 😞 Take a virtual cookie 🍪",
     [{ text: "Start again", action: start }]
+  );
+}
+
+function cookieClicked() {
+  setDialogue(
+    "Nom nom! 😋 That tickles!",
+    [{ text: "Continue", action: askHow }]
   );
 }
 

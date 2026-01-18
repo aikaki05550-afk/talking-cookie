@@ -12,6 +12,23 @@ body {
 }
 
 
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(-10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes wiggle {
+  0%, 100% { transform: rotate(0deg); }
+  25% { transform: rotate(-2deg); }
+  75% { transform: rotate(2deg); }
+}
+
 .container {
   text-align: center;
   width: 300px;
@@ -20,14 +37,21 @@ body {
 .cookie img {
   width: 150px;
   cursor: pointer;
+  transition: transform 0.2s ease;
 }
 
+.cookie img:hover {
+  animation: wiggle 0.5s ease;
+}
 
 .speech {
   background: white;
   padding: 15px;
   border-radius: 15px;
   min-height: 60px;
+  transition: opacity 0.3s ease;
+  font-size: 16px;
+  line-height: 1.4;
 }
 
 .buttons button {
@@ -41,8 +65,15 @@ body {
   color: white;
   cursor: pointer;
   font-size: 14px;
+  transition: all 0.2s ease;
+  animation: fadeIn 0.4s ease forwards;
 }
 
 .buttons button:hover {
   background: #b67c3f;
+  transform: scale(1.05);
+}
+
+.buttons button:active {
+  transform: scale(0.98);
 }
